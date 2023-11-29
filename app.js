@@ -1,7 +1,7 @@
 //Basic
 const express = require('express');
 const app = new express();
-// const router = require('./src/routes/api')
+const router = require('./src/routes/api')
 const bodyParser = require('body-parser');
 
 
@@ -55,7 +55,7 @@ connectToDatabase();
 
 
 //Routing Implement
-// app.use("/api/v1",router)
+app.use("/api/v1",router)
 
 
 module.exports = app;
