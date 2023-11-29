@@ -10,7 +10,7 @@ router.post('/Registration',UserController.Registration)
 router.post('/Login',UserController.Login);
 
 router.post('/ProfileUpdate',AuthVerifyMiddleware,UserController.ProfileUpdate)
-router.get("/ProfileDetails",AuthVerifyMiddleware,UserController.ProfileDetails);
+router.get("/ProfileDetails",AuthVerifyMiddleware,UsercleController.ProfileDetails);
 
 
 
