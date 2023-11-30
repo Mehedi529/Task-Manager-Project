@@ -45,7 +45,7 @@ exports.Login = async (req,res) => {
 }
 
 
-//Profile Update --> face some problem to update the profile
+//Profile Update 
 exports.ProfileUpdate = async (req,res)=>{
     try{
         let email = req.headers['email'];
@@ -81,16 +81,6 @@ exports.RecoverVerifyEmail = async (req,res)=>{
 
     // let result = await UserModel.find({email:email}).count();
     let result = await UserModel.findOne({ email: email });
-    // if(result===1){
-    //     //Verification Email
-    //     await SendEmailUtility(email,EmailText,EmailSubject);
-    //     await OTPModel.create({email:email,otp:OTPCode})
-    //     res.status(200).json({status:"success",data:"6 Digit Verification Code has been send"})
-    // }
-        // else{
-    //     res.status(200).json({status:"fail",data:"No User Found"})
-    // }
-
     if (result) {
         // Verification Email
         await SendEmailUtility(email, EmailText, EmailSubject);
@@ -122,7 +112,7 @@ exports.RecoverVerifyOTP = async (req,res)=>{
 
 
 
-//Reset Password
+//Reset Password --> face some problem to reset the password
 exports.RecoverResetPass=async (req,res)=>{
 
     let email = req.body['email'];
