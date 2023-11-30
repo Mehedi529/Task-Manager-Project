@@ -3,12 +3,12 @@ const nodemailer = require('nodemailer');
 const SendEmailUtility= async (EmailTo, EmailText, EmailSubject) => {
 
     let transporter = nodemailer.createTransport({
-        host: 'sandbox.smtp.mailtrap.io',
+        host: 'smtp.elasticemail.com',
         port: 2525,
         secure: false,
         auth: {
-            user: "0ad39c0364a058",
-            pass: '********e9c1'
+            user: "mehedihasan49265@gmail.com",
+            pass: 'F4552D2B4F6F8F86D0B8AB9C22B66439FF58'
         },tls: {
             rejectUnauthorized: false
         },
@@ -16,7 +16,7 @@ const SendEmailUtility= async (EmailTo, EmailText, EmailSubject) => {
 
 
     let mailOptions = {
-        from: 'mehedihasan914199@gmail.com',
+        from: 'mehedihasan49265@gmail.com',
         to: EmailTo,
         subject: EmailSubject,
         text: EmailText
@@ -25,6 +25,4 @@ const SendEmailUtility= async (EmailTo, EmailText, EmailSubject) => {
     return  await transporter.sendMail(mailOptions)
 
 }
-
-
-module.exports = SendEmailUtility;
+module.exports=SendEmailUtility
