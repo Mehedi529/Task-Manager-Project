@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable no-unused-vars */
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import RegistrationPage from './pages/auth/RegistrationPage';
+import LoginPage from './pages/auth/LoginPage';
+import ProfileUpdatePage from './pages/auth/ProfileUpdatePage';
+import ResetPasswordPage from './pages/auth/ResetPasswordPage';
+import UserProfilePage from './pages/userProfile/UserProfilePage';
+import ProfileDetailsPage from './pages/userProfile/ProfileDetailsPage';
+import CreateTaskPage from './pages/task/CreateTaskPage';
+import UpdateTaskPage from './pages/task/UpdateTaskPage';
+import TaskListPage from './pages/task/TaskListPage';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Switch>
+        {/* Authentication Routes */}
+        <Route path="/register" component={RegistrationPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/update-profile" component={ProfileUpdatePage} />
+        <Route path="/reset-password" component={ResetPasswordPage} />
+
+        {/* User Profile Routes */}
+        <Route path="/user-profile" component={UserProfilePage} />
+        <Route path="/profile-details" component={ProfileDetailsPage} />
+
+        {/* Task Routes */}
+        <Route path="/create-task" component={CreateTaskPage} />
+        <Route path="/update-task/:id" component={UpdateTaskPage} />
+        <Route path="/task-list" component={TaskListPage} />
+
+        {/* Default route or 404 page */}
+        <Route render={() => <h1>404 Not Found</h1>} />
+      </Switch>
+    </Router>
+  );
 }
 
-export default App
+export default App;
